@@ -25,11 +25,11 @@ public class PensionDisbursementModuleController {
 		logger.info("START");
 		int processCode = 21;
 		if (pensionDisbursementService.equals(processPensionInput)) {
-			processCode = pensionDisbursementService.processPension(token, processPensionInput);
+			processCode = pensionDisbursementService.processPension( processPensionInput);
 			logger.info("END");
 			return processCode;
 		}
-		logger.info("END - Token invalid");
+		logger.info("END -invalid");
 
 		return processCode;
 	}

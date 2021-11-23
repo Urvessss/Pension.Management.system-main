@@ -32,8 +32,8 @@ public class PensionDisbursmentService {
 		if ((processPensionInput.getPensionAmount().equals(pensioner.getPensionAmount()))
 				&& (processPensionInput.getBankServiceCharge().equals(bankServiceCharge))) {
 			pensioner.setBankServiceCharge(bankServiceCharge);
-			if (pensionerDetailClient.logTransaction(token, pensioner)
-					&& pensionerDetailClient.updatePensioner(token, pensioner)) {
+			if (pensionerDetails.logTransaction( pensioner)
+					&& pensionerDetails.updatePensioner( pensioner)) {
 				logger.info("END");
 
 				return 10;
