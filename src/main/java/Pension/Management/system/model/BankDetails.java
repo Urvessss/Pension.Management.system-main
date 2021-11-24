@@ -1,25 +1,57 @@
 package Pension.Management.system.model;
 
-public class BankDetails extends PensionerDetails {
+import java.io.Serializable;
 
-	private String bankName;
-	private long accno;
-	private String branch;
-	private String IFSCCode;
-	private String accHolderName;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+
+import Pension.Management.repository.IBankRepository;
+import javassist.SerialVersionUID;
+
+@Entity
+@Table(name ="bank_details")
+public class BankDetails implements Serializable {
 	
+
+	private static final long serialVersionUID = -9165581216674129315L;
+@Id
+	 private String bankName;
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+	 @NotNull
+	 private Long accno;
+	 @Column
+	 private String branch;
+	 @Column
+	 private String ifscCode;
+	 @Column
+	 private String accHolderName;
+//	 @OneToOne
+//	 @JoinColumn(name="pensionerid")
+//	 private Pensioner pensioner;
+	 
 	public BankDetails() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	
-	public BankDetails(String bankName, long accno, String branch, String iFSCCode, String accHolderName) {
+
+	public BankDetails(String bankName, Long accno, String branch, String ifscCode, String accHolderName,
+			Pensioner pensioner) {
 		super();
 		this.bankName = bankName;
 		this.accno = accno;
 		this.branch = branch;
-		IFSCCode = iFSCCode;
+		this.ifscCode = ifscCode;
 		this.accHolderName = accHolderName;
+		//this.pensioner = pensioner;
 	}
 
 	public String getBankName() {
@@ -30,11 +62,11 @@ public class BankDetails extends PensionerDetails {
 		this.bankName = bankName;
 	}
 
-	public long getAccno() {
+	public Long getAccno() {
 		return accno;
 	}
 
-	public void setAccno(long accno) {
+	public void setAccno(Long accno) {
 		this.accno = accno;
 	}
 
@@ -46,12 +78,12 @@ public class BankDetails extends PensionerDetails {
 		this.branch = branch;
 	}
 
-	public String getIFSCCode() {
-		return IFSCCode;
+	public String getIfscCode() {
+		return ifscCode;
 	}
 
-	public void setIFSCCode(String iFSCCode) {
-		IFSCCode = iFSCCode;
+	public void setIfscCode(String ifscCode) {
+		this.ifscCode = ifscCode;
 	}
 
 	public String getAccHolderName() {
@@ -62,10 +94,18 @@ public class BankDetails extends PensionerDetails {
 		this.accHolderName = accHolderName;
 	}
 
+//	public Pensioner getPensionerDetails() {
+//		return pensioner;
+//	}
+//
+//	public void setPensionerDetails(Pensioner pensioner) {
+//		this.pensioner = pensioner;
+//	}
+
 	@Override
 	public String toString() {
-		return "BankDetails [bankName=" + bankName + ", accno=" + accno + ", branch=" + branch + ", IFSCCode="
-				+ IFSCCode + ", accHolderName=" + accHolderName + "]";
+		return "BankDetails [bankName=" + bankName + ", accno=" + accno + ", branch=" + branch + ", ifscCode="
+				+ ifscCode + ", accHolderName=" + accHolderName +  "]";
 	}
 	
 	

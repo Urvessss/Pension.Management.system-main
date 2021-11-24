@@ -1,36 +1,45 @@
 package Pension.Management.system.model;
 
-import java.sql.Date;
 import java.time.LocalTime;
+import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="payment_details")
 public class PaymentDetails {
 
-	private int paymentId;
-	private Date paymentdate;
-	private LocalTime paymentTime;
-	private String paymentStatus;
-	public PaymentDetails() {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+   	private Integer paymentId;
+	 private Date paymentDate;
+	 private LocalTime paymentTime;
+	 private String paymentStatus;
+	 
+	 public PaymentDetails() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public PaymentDetails(int paymentId, Date paymentdate, LocalTime paymentTime, String paymentStatus) {
+	public PaymentDetails(Integer paymentId, Date paymentDate, LocalTime paymentTime, String paymentStatus) {
 		super();
 		this.paymentId = paymentId;
-		this.paymentdate = paymentdate;
+		this.paymentDate = paymentDate;
 		this.paymentTime = paymentTime;
 		this.paymentStatus = paymentStatus;
 	}
-	public int getPaymentId() {
+	public Integer getPaymentId() {
 		return paymentId;
 	}
-	public void setPaymentId(int paymentId) {
+	public void setPaymentId(Integer paymentId) {
 		this.paymentId = paymentId;
 	}
-	public Date getPaymentdate() {
-		return paymentdate;
+	public Date getPaymentDate() {
+		return paymentDate;
 	}
-	public void setPaymentdate(Date paymentdate) {
-		this.paymentdate = paymentdate;
+	public void setPaymentDate(Date paymentDate) {
+		this.paymentDate = paymentDate;
 	}
 	public LocalTime getPaymentTime() {
 		return paymentTime;
@@ -46,9 +55,8 @@ public class PaymentDetails {
 	}
 	@Override
 	public String toString() {
-		return "PaymentDetails [paymentId=" + paymentId + ", paymentdate=" + paymentdate + ", paymentTime="
+		return "PaymentDetails [paymentId=" + paymentId + ", paymentDate=" + paymentDate + ", paymentTime="
 				+ paymentTime + ", paymentStatus=" + paymentStatus + "]";
 	}
-	
 	
 }

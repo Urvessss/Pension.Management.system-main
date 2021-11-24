@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import Pension.Management.system.model.Pensioner;
 import Pension.Management.system.model.PensionerDetails;
 
-@Repository
-public interface IPensionerRepository extends JpaRespository<PensionerDetails,Integer>() {
-
-	public abstract Pensioner findByAadhar(int iPensioner) ;
-}
+//@Repository
+//public interface IPensionerRepository extends JpaRespository<PensionerDetails,Integer>() {
+//
+//	public abstract Pensioner findByAadhar(int iPensioner) ;
+//}

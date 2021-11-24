@@ -15,16 +15,16 @@ import Pension.Management.system.service.IPensionerService;
 
 @RestController
 public class IPensionerController {
-
-	private final Logger log = LoggerFactory.getLogger(IPensionerController.class);
-	
-	@Autowired
-	private IPensionerService appService;
-	
-	@PostMapping("/pensionerValidation")
-	public PensionerDetails validatePensioner(@RequestBody PensionerDetails pensionerDetails) {
-	    log.info("ValidatingPensionerController");
-		return appService.validatePensioner(pensionerDetails);
-	}
-	
+//
+//	private final Logger log = LoggerFactory.getLogger(IPensionerController.class);
+//	
+//	@Autowired
+//	private IPensionerService appService;
+//	
+//	@PostMapping("/pensionerValidation")
+//	public PensionerDetails validatePensioner(@RequestBody PensionerDetails pensionerDetails) {
+//	    log.info("ValidatingPensionerController");
+//		return appService.validatePensioner(pensionerDetails);
+//	}
+//	
 }
